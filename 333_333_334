@@ -347,7 +347,7 @@ repeat
        [Enum.UserInputType.MouseButton3] = 'MB3'
     }
     
-    menu.bg.Position = UDim2.new(0.5,-menu.bg.Size.X.Offset/2,0.5,-menu.bg.Size.Y.Offset/2)
+    menu.bg.Position = UDim2.new(1,-menu.bg.Size.X.Offset/2,1,-menu.bg.Size.Y.Offset/2)
     menu.Parent = CloneCore
     menu.Name = "aura_gui"
     local ProtectGui = protectgui or (syn and syn.protect_gui) or (function() end)
