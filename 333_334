@@ -116,7 +116,7 @@ repeat
  Name.FontFace = Fonts.ProggyTiny
  Name.Text = "[<font color=\"rgb(115, 100, 215)\">Keybinds</font>]"
  Name.TextColor3 = Color3.fromRGB(255, 255, 255)
- Name.TextSize = 9
+ Name.TextSize = 13
  Name.RichText = true
  Name.BorderSizePixel = 1
  
@@ -149,7 +149,7 @@ repeat
  Name_2.FontFace = Fonts.ProggyTiny
  Name_2.Text = "Silent Aim: <font color=\"rgb(115, 100, 215)\">[MB1]</font>"
  Name_2.TextColor3 = Color3.fromRGB(125, 125, 125)
- Name_2.TextSize = 9
+ Name_2.TextSize = 13
  Name_2.BorderSizePixel = 1
  Name_2.RichText = true
  Name_2.Visible = false
@@ -216,7 +216,7 @@ repeat
     WaterMarkLabel.RichText = true
     WaterMarkLabel.Text = "Build: Private"
     WaterMarkLabel.TextColor3 = Color3.fromRGB(152, 152, 152)
-    WaterMarkLabel.TextSize = 9
+    WaterMarkLabel.TextSize = 13
     WaterMarkLabel.TextWrapped = false
     
     WaterMarkLabel:GetPropertyChangedSignal("TextBounds"):Connect(function()
@@ -367,7 +367,7 @@ repeat
     menu_text_label.FontFace = Fonts.ProggyTiny
     menu_text_label.Text = library.Title
     menu_text_label.TextColor3 = Color3.fromRGB(75, 75, 75)
-    menu_text_label.TextSize = 9
+    menu_text_label.TextSize = 13
     menu_text_label.TextStrokeTransparency = 0.000
  
     local BottomBar = Instance.new("Frame", menu.bg)
@@ -392,7 +392,7 @@ repeat
     BuildLabel.RichText = true
     BuildLabel.Text = "build: <font color=\"rgb(115, 100, 215)\">public</font>"
     BuildLabel.TextColor3 = Color3.fromRGB(74, 74, 74)
-    BuildLabel.TextSize = 9
+    BuildLabel.TextSize = 13
     BuildLabel.TextWrapped = true
     BuildLabel.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -407,7 +407,7 @@ repeat
     ActiveUserLabel.RichText = true
     ActiveUserLabel.Text = "active user: <font color=\"rgb(115, 100, 215)\">7d</font>"
     ActiveUserLabel.TextColor3 = Color3.fromRGB(74, 74, 74)
-    ActiveUserLabel.TextSize = 9
+    ActiveUserLabel.TextSize = 13
     ActiveUserLabel.TextXAlignment = Enum.TextXAlignment.Right
  
     for _, obj in pairs(menu:GetDescendants()) do
@@ -527,11 +527,10 @@ repeat
             end           
  
             draggable(menu.bg)
-                InputService.MouseIconEnabled = false
-                local Cursor = Drawing.new('Triangle');Cursor.Thickness = 1;Cursor.Filled = true;Cursor.Visible = true;Cursor.ZIndex = math.huge;local CursorOutline = Drawing.new('Triangle');CursorOutline.Thickness = 1;CursorOutline.Filled = false;CursorOutline.Color = Color3.new(0, 0, 0);CursorOutline.Visible = true;CursorOutline.ZIndex = math.huge
+                InputService.MouseIconEnabled = true
                 function cursorupdate()
                     local mPos = InputService:GetMouseLocation();
-                    Cursor.Color = library.Colors.libColor;Cursor.PointA = Vector2.new(mPos.X, mPos.Y);Cursor.PointB = Vector2.new(mPos.X + 16, mPos.Y + 6);Cursor.PointC = Vector2.new(mPos.X + 6, mPos.Y + 16) CursorOutline.PointA = Cursor.PointA;CursorOutline.PointB = Cursor.PointB;CursorOutline.PointC = Cursor.PointC;RunService.RenderStepped:Wait() end task.spawn(function() while true do cursorupdate() end
+                    Cursor.Color = library.Colors.libColor;Cursor.PointA = Vector2.new(mPos.X, mPos.Y);Cursor.PointB = Vector2.new(mPos.X + 16, mPos.Y + 6);Cursor.PointC = Vector2.new(mPos.X + 6, mPos.Y + 16);CursorOutline.PointA = Cursor.PointA;CursorOutline.PointB = Cursor.PointB;CursorOutline.PointC = Cursor.PointC;RunService.RenderStepped:Wait() end task.spawn(function() while true do cursorupdate() end
                 end)
                 InputService.InputEnded:Connect(function(key)
                 if key.KeyCode == library.keybind then 
@@ -646,7 +645,7 @@ repeat
                         title.FontFace = Fonts.ProggyTiny
                         title.Text = groupname or ""
                         title.TextColor3 = Color3.fromRGB(255, 255, 255)
-                        title.TextSize = 9
+                        title.TextSize = 13
                         title.TextStrokeTransparency = 0.000
                         title.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -711,7 +710,7 @@ repeat
                             text.FontFace = Fonts.ProggyTiny
                             text.Text = args.text or args.flag
                             text.TextColor3 = Color3.fromRGB(155, 155, 155)
-                            text.TextSize = 9
+                            text.TextSize = 13
                             text.TextStrokeTransparency = 0.000
                             text.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -724,7 +723,7 @@ repeat
                             button.FontFace = Fonts.ProggyTiny
                             button.Text = ""
                             button.TextColor3 = Color3.fromRGB(0, 0, 0)
-                            button.TextSize = 9
+                            button.TextSize = 13
  
                             local state = args.default
                             if args.risky then text.TextColor3 = state and Color3.fromRGB(255, 0, 0) or Color3.fromRGB(139, 0, 0) end
@@ -787,7 +786,7 @@ repeat
                                 Name.Size = UDim2.new(1, 0, 1, 0)
                                 Name.FontFace = Fonts.ProggyTiny
                                 Name.TextColor3 = Color3.fromRGB(125, 125, 125)
-                                Name.TextSize = 9
+                                Name.TextSize = 13
                                 Name.RichText = true
                                 Name.Visible = false
  
@@ -811,7 +810,7 @@ repeat
                                 button.FontFace = Fonts.ProggyTiny
                                 button.Text = ""
                                 button.TextColor3 = Color3.fromRGB(155, 155, 155)
-                                button.TextSize = 9
+                                button.TextSize = 13
                                 button.TextStrokeTransparency = 0.000
                                 button.TextXAlignment = Enum.TextXAlignment.Center
  
@@ -995,7 +994,7 @@ repeat
                                 button2.Text = ""
                                 button2.FontFace = Fonts.ProggyTiny
                                 button2.TextColor3 = Color3.fromRGB(0, 0, 0)
-                                button2.TextSize = 9
+                                button2.TextSize = 13
  
                                 colorFrame.Name = "colorFrame"
                                 colorFrame.Parent = toggleframe
@@ -1060,7 +1059,7 @@ repeat
                                 CurrentColorFrame_Text.FontFace = Fonts.ProggyTiny
                                 CurrentColorFrame_Text.Text = args.text or args.flag
                                 CurrentColorFrame_Text.TextColor3 = library.Colors.libColor
-                                CurrentColorFrame_Text.TextSize = 9
+                                CurrentColorFrame_Text.TextSize = 13
                                 CurrentColorFrame_Text.TextStrokeTransparency = 0.000
  
                                 main_2.Name = "main"
@@ -1225,7 +1224,7 @@ repeat
                             button.FontFace = Fonts.ProggyTiny
                             button.Text = args.text or args.flag
                             button.TextColor3 = Color3.fromRGB(255, 255, 255)
-                            button.TextSize = 9
+                            button.TextSize = 13
                             button.TextStrokeTransparency = 0.000
  
                             gradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(59, 59, 59)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(83, 83, 83))}
@@ -1308,7 +1307,7 @@ repeat
                             button.FontFace = Fonts.ProggyTiny
                             button.Text = ""
                             button.TextColor3 = Color3.fromRGB(0, 0, 0)
-                            button.TextSize = 9
+                            button.TextSize = 13
  
                             valuetext.Parent = main
                             valuetext.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1317,7 +1316,7 @@ repeat
                             valuetext.FontFace = Fonts.ProggyTiny
                             valuetext.Text = "1/10"
                             valuetext.TextColor3 = Color3.fromRGB(255, 255, 255)
-                            valuetext.TextSize = 9
+                            valuetext.TextSize = 13
                             valuetext.TextStrokeTransparency = 0.000
  
                             UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(105, 105, 105)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(121, 121, 121))}
@@ -1333,7 +1332,7 @@ repeat
                             text.FontFace = Fonts.ProggyTiny
                             text.Text = args.text or args.flag
                             text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            text.TextSize = 9
+                            text.TextSize = 13
                             text.TextStrokeTransparency = 0.000
                             text.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1350,7 +1349,7 @@ repeat
                             textAdd.FontFace = Fonts.ProggyTiny
                             textAdd.Text = "+"
                             textAdd.TextColor3 = Color3.fromRGB(125, 125, 125)
-                            textAdd.TextSize = 9
+                            textAdd.TextSize = 13
                             textAdd.TextStrokeTransparency = 0.000
                             textAdd.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1363,7 +1362,7 @@ repeat
                             textRemove.FontFace = Fonts.ProggyTiny
                             textRemove.Text = "-"
                             textRemove.TextColor3 = Color3.fromRGB(125, 125, 125)
-                            textRemove.TextSize = 9
+                            textRemove.TextSize = 13
                             textRemove.TextStrokeTransparency = 0.000
                             textRemove.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1497,7 +1496,7 @@ repeat
                             box.FontFace = Fonts.ProggyTiny
                             box.Text = args.value or ""
                             box.TextColor3 = Color3.fromRGB(255, 255, 255)
-                            box.TextSize = 9
+                            box.TextSize = 13
                             box.TextStrokeTransparency = 0.000
                             box.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1515,7 +1514,7 @@ repeat
                             text.FontFace = Fonts.ProggyTiny
                             text.Text = args.text or args.flag
                             text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            text.TextSize = 9
+                            text.TextSize = 13
                             text.TextStrokeTransparency = 0.000
                             text.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1574,7 +1573,7 @@ repeat
                             Text.FontFace = Fonts.ProggyTiny
                             Text.Text = args.text
                             Text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            Text.TextSize = 9
+                            Text.TextSize = 13
                             Text.TextStrokeTransparency = 0.000
                             Text.TextXAlignment = Enum.TextXAlignment.Left
                         end
@@ -1628,7 +1627,7 @@ repeat
                             button.FontFace = Fonts.ProggyTiny
                             button.Text = ""
                             button.TextColor3 = Color3.fromRGB(0, 0, 0)
-                            button.TextSize = 9
+                            button.TextSize = 13
  
                             dumbtriangle.Name = "dumbtriangle"
                             dumbtriangle.Parent = main
@@ -1651,7 +1650,7 @@ repeat
                             valuetext.FontFace = Fonts.ProggyTiny
                             valuetext.Text = ""
                             valuetext.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            valuetext.TextSize = 9
+                            valuetext.TextSize = 13
                             valuetext.TextStrokeTransparency = 0.000
                             valuetext.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1669,7 +1668,7 @@ repeat
                             text.FontFace = Fonts.ProggyTiny
                             text.Text = args.text or args.flag
                             text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            text.TextSize = 9
+                            text.TextSize = 13
                             text.TextStrokeTransparency = 0.000
                             text.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1777,7 +1776,7 @@ repeat
                                     button_2.BorderColor3 = Color3.fromRGB(25,25,25)
                                     button_2.Text = ""
                                     button_2.TextColor3 = Color3.fromRGB(0, 0, 0)
-                                    button_2.TextSize = 9
+                                    button_2.TextSize = 13
  
                                     text_2.Name = "off"
                                     text_2.Parent = option
@@ -1788,7 +1787,7 @@ repeat
                                     text_2.FontFace = Fonts.ProggyTiny
                                     text_2.Text = v
                                     text_2.TextColor3 = args.multiselect and Color3.fromRGB(125, 125, 125) or library.Colors.libColor
-                                    text_2.TextSize = 9
+                                    text_2.TextSize = 13
                                     text_2.TextStrokeTransparency = 0.000
                                     text_2.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -1966,7 +1965,7 @@ repeat
                                     text.FontFace = Fonts.ProggyTiny
                                     text.Text = v
                                     text.TextColor3 = Color3.fromRGB(255, 255, 255)
-                                    text.TextSize = 9
+                                    text.TextSize = 13
                                     text.TextStrokeTransparency = 0.000
  
                                     button.MouseButton1Click:Connect(function()
@@ -2027,7 +2026,7 @@ repeat
                             text.FontFace = Fonts.ProggyTiny
                             text.Text = args.text or args.flag
                             text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            text.TextSize = 9
+                            text.TextSize = 13
                             text.TextStrokeTransparency = 0.000
                             text.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -2040,7 +2039,7 @@ repeat
                             button.FontFace = Fonts.ProggyTiny
                             button.Text = ""
                             button.TextColor3 = Color3.fromRGB(0, 0, 0)
-                            button.TextSize = 9
+                            button.TextSize = 13
  
                             colorpicker_2.Name = "colorpicker"
                             colorpicker_2.Parent = colorpicker
@@ -2078,7 +2077,7 @@ repeat
                             button.Text = ""
                             button.ZIndex = args.ontop and topStuff or jigCount
                             button.TextColor3 = Color3.fromRGB(0, 0, 0)
-                            button.TextSize = 9
+                            button.TextSize = 13
  
                             colorFrame.Name = "colorFrame"
                             colorFrame.Parent = colorpicker
@@ -2143,7 +2142,7 @@ repeat
                             CurrentColorFrame_Text.FontFace = Fonts.ProggyTiny
                             CurrentColorFrame_Text.Text = args.text or args.flag
                             CurrentColorFrame_Text.TextColor3 = library.Colors.libColor
-                            CurrentColorFrame_Text.TextSize = 9
+                            CurrentColorFrame_Text.TextSize = 13
                             CurrentColorFrame_Text.TextStrokeTransparency = 0.000
  
                             main_2.Name = "main"
@@ -2287,7 +2286,7 @@ repeat
                             text.FontFace = Fonts.ProggyTiny
                             text.Text = args.text or args.flag
                             text.TextColor3 = Color3.fromRGB(244, 244, 244)
-                            text.TextSize = 9
+                            text.TextSize = 13
                             text.TextStrokeTransparency = 0.000
                             text.TextXAlignment = Enum.TextXAlignment.Left
  
@@ -2300,7 +2299,7 @@ repeat
                             button.FontFace = Fonts.ProggyTiny
                             button.Text = "--"
                             button.TextColor3 = Color3.fromRGB(155, 155, 155)
-                            button.TextSize = 9
+                            button.TextSize = 13
                             button.TextStrokeTransparency = 0.000
                             button.TextXAlignment = Enum.TextXAlignment.Right
  
