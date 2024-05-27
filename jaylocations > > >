@@ -1,0 +1,200 @@
+local AuraLocationFolder = Instance.new("Folder", workspace)
+AuraLocationFolder.Name = "JayLocations > > >"
+
+-- Gun Store Inside
+local GunStoreInside = Instance.new("Part", AuraLocationFolder)
+GunStoreInside.Name = "Gun Store (Inside)"
+GunStoreInside.Anchored = true
+GunStoreInside.Transparency = 0.5
+GunStoreInside.CanCollide = false
+GunStoreInside.Size = Vector3.new(2,0,2)
+GunStoreInside.CFrame = workspace:FindFirstChild("tp22").CFrame
+
+-- Gun Store Front
+local GunStoreFront = Instance.new("Part", AuraLocationFolder)
+GunStoreFront.Name = "Gun Store (Front)"
+GunStoreFront.Anchored = true
+GunStoreFront.Transparency = 0.5
+GunStoreFront.CanCollide = false
+GunStoreFront.Size = Vector3.new(2,0,2)
+GunStoreFront.CFrame = workspace:FindFirstChild("gunstorr2").CFrame
+
+-- Gun Store Back
+local GunStoreBack = Instance.new("Part", AuraLocationFolder)
+GunStoreBack.Name = "Gun Store (Back)"
+GunStoreBack.Anchored = true
+GunStoreBack.Transparency = 0.5
+GunStoreBack.CanCollide = false
+GunStoreBack.Size = Vector3.new(2,0,2)
+GunStoreBack.CFrame = workspace:FindFirstChild("tp2").CFrame
+
+-- Exotic Store
+local ExoticStore = Instance.new("Part", AuraLocationFolder)
+ExoticStore.Name = "Exotic Store"
+ExoticStore.Anchored = true
+ExoticStore.Transparency = 0.5
+ExoticStore.CanCollide = false
+ExoticStore.Size = Vector3.new(2,0,2)
+ExoticStore.CFrame = CFrame.new(-1126.1431884765625, 299.28887939453125, -928.8731689453125)
+
+-- Melee Store
+local MeleeStore = Instance.new("Part", AuraLocationFolder)
+MeleeStore.Name = "Melee Store"
+MeleeStore.Anchored = true
+MeleeStore.Transparency = 0.5
+MeleeStore.CanCollide = false
+MeleeStore.Size = Vector3.new(2,0,2)
+MeleeStore.CFrame = CFrame.new(-1032.6278076171875, 236.32623291015625, -586.0958251953125)
+
+-- Mask Store Inside
+local MaskStoreInside = Instance.new("Part", AuraLocationFolder)
+MaskStoreInside.Name = "Mask Store (Inside)"
+MaskStoreInside.Anchored = true
+MaskStoreInside.Transparency = 0.5
+MaskStoreInside.CanCollide = false
+MaskStoreInside.Size = Vector3.new(2,0,2)
+MaskStoreInside.CFrame = workspace:FindFirstChild("yeah45").CFrame
+
+-- Mask Store Outside
+local MaskStoreOutside = Instance.new("Part", AuraLocationFolder)
+MaskStoreOutside.Name = "Mask Store (Outside)"
+MaskStoreOutside.Anchored = true
+MaskStoreOutside.Transparency = 0.5
+MaskStoreOutside.CanCollide = false
+MaskStoreOutside.Size = Vector3.new(2,0,2)
+MaskStoreOutside.CFrame = workspace:FindFirstChild("yeah453").CFrame
+
+-- Apartment 1 Inside
+local Apartment1Inside = Instance.new("Part", AuraLocationFolder)
+Apartment1Inside.Name = "Apartment 1 (Inside)"
+Apartment1Inside.Anchored = true
+Apartment1Inside.Transparency = 0.5
+Apartment1Inside.CanCollide = false
+Apartment1Inside.Size = Vector3.new(2,0,2)
+Apartment1Inside.CFrame = workspace:FindFirstChild("hotels2").CFrame
+
+-- Apartment 1 Outside
+local Apartment1Outside = Instance.new("Part", AuraLocationFolder)
+Apartment1Outside.Name = "Apartment 1 (Outside)"
+Apartment1Outside.Anchored = true
+Apartment1Outside.Transparency = 0.5
+Apartment1Outside.CanCollide = false
+Apartment1Outside.Size = Vector3.new(2,0,2)
+Apartment1Outside.CFrame = workspace:FindFirstChild("hotels3").CFrame
+
+-- Apartment 2 Inside
+local Apartment2Inside = Instance.new("Part", AuraLocationFolder)
+Apartment2Inside.Name = "Apartment 2 (Inside)"
+Apartment2Inside.Anchored = true
+Apartment2Inside.Transparency = 0.5
+Apartment2Inside.CanCollide = false
+Apartment2Inside.Size = Vector3.new(2,0,2)
+Apartment2Inside.CFrame = workspace:FindFirstChild("pent66").CFrame
+
+-- Apartment 2 Outside
+local Apartment2Outside = Instance.new("Part", AuraLocationFolder)
+Apartment2Outside.Name = "Apartment 2 (Outside)"
+Apartment2Outside.Anchored = true
+Apartment2Outside.Transparency = 0.5
+Apartment2Outside.CanCollide = false
+Apartment2Outside.Size = Vector3.new(2,0,2)
+Apartment2Outside.CFrame = workspace:FindFirstChild("pent2").CFrame
+
+-- Apartment 3 Inside
+local Apartment3Inside = Instance.new("Part", AuraLocationFolder)
+Apartment3Inside.Name = "Apartment 3 (Inside)"
+Apartment3Inside.Anchored = true
+Apartment3Inside.Transparency = 0.5
+Apartment3Inside.CanCollide = false
+Apartment3Inside.Size = Vector3.new(2,0,2)
+Apartment3Inside.CFrame = workspace:FindFirstChild("RPT233777").CFrame
+
+-- Apartment 3 Outside
+local Apartment3Outside = Instance.new("Part", AuraLocationFolder)
+Apartment3Outside.Name = "Apartment 3 (Outside)"
+Apartment3Outside.Anchored = true
+Apartment3Outside.Transparency = 0.5
+Apartment3Outside.CanCollide = false
+Apartment3Outside.Size = Vector3.new(2,0,2)
+Apartment3Outside.CFrame = workspace:FindFirstChild("RPT233").CFrame
+
+-- Apartment 4 Inside
+local Apartment4Inside = Instance.new("Part", AuraLocationFolder)
+Apartment4Inside.Name = "Apartment 4 (Inside)"
+Apartment4Inside.Anchored = true
+Apartment4Inside.Transparency = 0.5
+Apartment4Inside.CanCollide = false
+Apartment4Inside.Size = Vector3.new(2,0,2)
+Apartment4Inside.CFrame = workspace:FindFirstChild("PenTT").CFrame
+
+-- Apartment 4 Outside
+local Apartment4Outside = Instance.new("Part", AuraLocationFolder)
+Apartment4Outside.Name = "Apartment 4 (Outside)"
+Apartment4Outside.Anchored = true
+Apartment4Outside.Transparency = 0.5
+Apartment4Outside.CanCollide = false
+Apartment4Outside.Size = Vector3.new(2,0,2)
+Apartment4Outside.CFrame = workspace:FindFirstChild("PenTT2").CFrame
+
+-- Bank Inside
+local BankInside = Instance.new("Part", AuraLocationFolder)
+BankInside.Name = "Bank (Inside)"
+BankInside.Anchored = true
+BankInside.Transparency = 0.5
+BankInside.CanCollide = false
+BankInside.Size = Vector3.new(2,0,2)
+BankInside.CFrame = workspace:FindFirstChild("BankTP").CFrame
+
+-- Bank Outside
+local BankOutside = Instance.new("Part", AuraLocationFolder)
+BankOutside.Name = "Bank (Outside)"
+BankOutside.Anchored = true
+BankOutside.Transparency = 0.5
+BankOutside.CanCollide = false
+BankOutside.Size = Vector3.new(2,0,2)
+BankOutside.CFrame = CFrame.new(-644.845703125, 253.7483673095703, -1212.18310546875)
+
+-- Icebox Inside
+local IceboxInside = Instance.new("Part", AuraLocationFolder)
+IceboxInside.Name = "Icebox (Inside)"
+IceboxInside.Anchored = true
+IceboxInside.Transparency = 0.5
+IceboxInside.CanCollide = false
+IceboxInside.Size = Vector3.new(2,0,2)
+IceboxInside.CFrame = CFrame.new(-636.1162719726562, 253.91409301757812, -1259.7989501953125)
+
+-- Icebox Outside
+local IceboxOutside = Instance.new("Part", AuraLocationFolder)
+IceboxOutside.Name = "Icebox (Outside)"
+IceboxOutside.Anchored = true
+IceboxOutside.Transparency = 0.5
+IceboxOutside.CanCollide = false
+IceboxOutside.Size = Vector3.new(2,0,2)
+IceboxOutside.CFrame = CFrame.new(-653.7195434570312, 253.95382690429688, -1263.06103515625)
+
+-- DealerShip
+local DealerShip = Instance.new("Part", AuraLocationFolder)
+DealerShip.Name = "DealerShip"
+DealerShip.Anchored = true
+DealerShip.Transparency = 0.5
+DealerShip.CanCollide = false
+DealerShip.Size = Vector3.new(2,0,2)
+DealerShip.CFrame = CFrame.new(-426.70916748046875, 253.8438720703125, -1223.3536376953125)
+
+-- Criminal Base
+local CriminalBase = Instance.new("Part", AuraLocationFolder)
+CriminalBase.Name = "Criminal Base"
+CriminalBase.Anchored = true
+CriminalBase.Transparency = 0.5
+CriminalBase.CanCollide = false
+CriminalBase.Size = Vector3.new(2,0,2)
+CriminalBase.CFrame = CFrame.new(-462.7344970703125, 254.54969787597656, -329.0947570800781)
+
+-- Weed
+local Weed = Instance.new("Part", AuraLocationFolder)
+Weed.Name = "Weed"
+Weed.Anchored = true
+Weed.Transparency = 0.5
+Weed.CanCollide = false
+Weed.Size = Vector3.new(2,0,2)
+Weed.CFrame = CFrame.new(-1245.8697509765625, 253.62152099609375, -789.0291137695312)
