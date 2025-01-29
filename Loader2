@@ -133,12 +133,17 @@ function Library:createGame(gameName, gameId, scriptStatus)
     end)
 end
 
-local GameScripts = {}
-
 local LoadButton = menu:WaitForChild("bg"):WaitForChild("loadContainer"):WaitForChild("LoadButton")
 local ExitButton = menu:WaitForChild("bg"):WaitForChild("exitContainer"):WaitForChild("ExitButton")
 LoadButton.MouseButton1Click:Connect(function()
-    if GameScripts[SelectedGameToLoad] then
-        GameScripts[SelectedGameToLoad]()
+    if SelectedGameToLoad == 'Arsenal' then
+        print("Loading \"Arsenal\"...")
+    elseif SelectedGameToLoad == 'Phantom Forces' then
+        print("Loading \"Phantom Forces\"...")
+    elseif SelectedGameToLoad == 'a literal baseplate.' then
+        print("Loading \"a literal baseplate\"...")
     end
+end)
+ExitButton:MouseButton1Click:Connect(function()
+    menu:Destroy()
 end)
