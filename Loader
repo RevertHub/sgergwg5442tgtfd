@@ -144,6 +144,6 @@ LoadButton.MouseButton1Click:Connect(function()
         print("Loading \"a literal baseplate\"...")
     end
 end)
-ExitButton:MouseButton1Click:Connect(function()
+ExitButton.MouseButton1Click:Connect(function()
     menu:Destroy()
 end)
