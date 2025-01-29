@@ -29,8 +29,8 @@ local SelectedGameToLoad = ""
 function Library:createGame(gameName, gameId, scriptStatus)
     local gameHolder = menu:WaitForChild("bg"):WaitForChild("gameContainer"):WaitForChild("gameHolder")
 
-    local gameSectionFrame = Instance.new("Frame")
-    gameSectionFrame.Name = "gameSection Frame"
+    local gameSection = Instance.new("Frame")
+    gameSectionFrame.Name = "gameSection"
     gameSectionFrame.Parent = gameHolder
     gameSectionFrame.AnchorPoint = Vector2.new(0.5, 0)
     gameSectionFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 40)
@@ -40,7 +40,7 @@ function Library:createGame(gameName, gameId, scriptStatus)
 
     local gameNameLabel = Instance.new("TextLabel")
     gameNameLabel.Name = "gameName"
-    gameNameLabel.Parent = gameSectionFrame
+    gameNameLabel.Parent = gameSection
     gameNameLabel.BackgroundTransparency = 1.000
     gameNameLabel.BorderSizePixel = 0
     gameNameLabel.Position = UDim2.new(0.2, 0, 0.1, 0)
@@ -107,7 +107,7 @@ function Library:createGame(gameName, gameId, scriptStatus)
     gameButton.Size = UDim2.new(1, 0, 1, 0)
     gameButton.ImageTransparency = 1.000
 
-    for _, v in ipairs(gameHolder:GetChildren()) do
+    for i, v in ipairs(gameHolder:GetChildren()) do
         if v:IsA("Frame") then
             v.Transparency = 1
             if v:FindFirstChild("selectedFrame") then
