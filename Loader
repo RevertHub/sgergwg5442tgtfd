@@ -1,0 +1,144 @@
+local Library = {}
+
+repeat
+    task.wait()
+until game:IsLoaded()
+
+if not isfile("aura.wtf") then
+    makefolder("aura.wtf")
+end
+
+local menu = game:GetObjects('rbxassetid://94839936699171')[1]
+menu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+
+local function getStatusColor(status)
+    if status == "Online" then
+        return Color3.fromRGB(0, 255, 0)
+    elseif status == "Updating" then
+        return Color3.fromRGB(0, 0, 255)
+    elseif status == "Down" then
+        return Color3.fromRGB(255, 0, 0)
+    else
+        return Color3.fromRGB(255, 255, 255)
+    end
+end
+
+local SelectedGameToLoad = ""
+
+function Library:createGame(gameName, gameId, scriptStatus)
+    local gameHolder = menu:WaitForChild("bg"):WaitForChild("gameContainer"):WaitForChild("gameHolder")
+
+    local gameSectionFrame = Instance.new("Frame")
+    gameSectionFrame.Name = "gameSection Frame"
+    gameSectionFrame.Parent = gameHolder
+    gameSectionFrame.AnchorPoint = Vector2.new(0.5, 0)
+    gameSectionFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 40)
+    gameSectionFrame.BorderSizePixel = 0
+    gameSectionFrame.Position = UDim2.new(0.5, 0, 0, 0)
+    gameSectionFrame.Size = UDim2.new(0, 343, 0, 60)
+
+    local gameNameLabel = Instance.new("TextLabel")
+    gameNameLabel.Name = "gameName"
+    gameNameLabel.Parent = gameSectionFrame
+    gameNameLabel.BackgroundTransparency = 1.000
+    gameNameLabel.BorderSizePixel = 0
+    gameNameLabel.Position = UDim2.new(0.2, 0, 0.1, 0)
+    gameNameLabel.Size = UDim2.new(0, 303, 0, 29)
+    gameNameLabel.Font = Enum.Font.Arial
+    gameNameLabel.Text = gameName
+    gameNameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    gameNameLabel.TextScaled = true
+    gameNameLabel.TextWrapped = true
+    gameNameLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    local gameStatusLabel = Instance.new("TextLabel")
+    gameStatusLabel.Name = "gameStatus"
+    gameStatusLabel.Parent = gameSectionFrame
+    gameStatusLabel.BackgroundTransparency = 1.000
+    gameStatusLabel.BorderSizePixel = 0
+    gameStatusLabel.Position = UDim2.new(0.2, 0, 0.6, 0)
+    gameStatusLabel.Size = UDim2.new(0, 303, 0, 21)
+    gameStatusLabel.Font = Enum.Font.Arial
+    gameStatusLabel.Text = "Status:"
+    gameStatusLabel.TextColor3 = Color3.fromRGB(100, 100, 100)
+    gameStatusLabel.TextSize = 14.000
+    gameStatusLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    local gameValueLabel = Instance.new("TextLabel")
+    gameValueLabel.Name = "gameValue"
+    gameValueLabel.Parent = gameStatusLabel
+    gameValueLabel.BackgroundTransparency = 1.000
+    gameValueLabel.BorderSizePixel = 0
+    gameValueLabel.Position = UDim2.new(0.15, 0, 0, 0)
+    gameValueLabel.Size = UDim2.new(0, 134, 0, 21)
+    gameValueLabel.Font = Enum.Font.Arial
+    gameValueLabel.Text = scriptStatus
+    gameValueLabel.TextColor3 = getStatusColor(scriptStatus)
+    gameValueLabel.TextSize = 14.000
+    gameValueLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    local gameThumbnail = Instance.new("ImageLabel")
+    gameThumbnail.Name = "gameThumbnail"
+    gameThumbnail.Parent = gameSectionFrame
+    gameThumbnail.AnchorPoint = Vector2.new(0.05, 0.5)
+    gameThumbnail.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    gameThumbnail.BorderSizePixel = 0
+    gameThumbnail.Position = UDim2.new(0.05, 0, 0.5, 0)
+    gameThumbnail.Size = UDim2.new(0, 50, 0, 50)
+    gameThumbnail.ScaleType = Enum.ScaleType.Crop
+    gameThumbnail.Image = "https://assetgame.roblox.com/Game/Tools/ThumbnailAsset.ashx?aid="..gameId.."&fmt=png&wd=420&ht=420"
+
+    local selectedFrame = Instance.new("Frame")
+    selectedFrame.Name = "selectedFrame"
+    selectedFrame.Parent = gameSectionFrame
+    selectedFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    selectedFrame.BackgroundColor3 = Color3.fromRGB(115, 100, 215)
+    selectedFrame.BorderSizePixel = 0
+    selectedFrame.Transparency = 1
+    selectedFrame.Position = UDim2.new(0, -5, 0, 30)
+    selectedFrame.Size = UDim2.new(0, 2, 0, 40)
+
+    local gameButton = Instance.new("ImageButton")
+    gameButton.Name = "gameButton"
+    gameButton.Parent = gameSectionFrame
+    gameButton.BackgroundTransparency = 1.000
+    gameButton.BorderSizePixel = 0
+    gameButton.Size = UDim2.new(1, 0, 1, 0)
+    gameButton.ImageTransparency = 1.000
+
+    for _, v in ipairs(gameHolder:GetChildren()) do
+        if v:IsA("Frame") then
+            v.Transparency = 1
+            if v:FindFirstChild("selectedFrame") then
+                v.selectedFrame.Transparency = 1
+            end
+        end
+    end
+    
+
+    gameButton.MouseButton1Click:Connect(function()
+        for i,v in ipairs(gameHolder:GetChildren()) do
+            if v:IsA("Frame") then
+                v.Transparency = 1
+                if v:FindFirstChild("selectedFrame") then
+                    v.selectedFrame.Transparency = 1
+                end
+            end
+        end
+        gameSectionFrame.Transparency = 0
+        selectedFrame.Transparency = 0
+        SelectedGameToLoad = gameName
+        print("Selected Game: " .. SelectedGameToLoad)
+    end)
+end
+
+local GameScripts = {}
+
+local LoadButton = menu:WaitForChild("bg"):WaitForChild("loadContainer"):WaitForChild("LoadButton")
+local ExitButton = menu:WaitForChild("bg"):WaitForChild("exitContainer"):WaitForChild("ExitButton")
+LoadButton.MouseButton1Click:Connect(function()
+    if GameScripts[SelectedGameToLoad] then
+        GameScripts[SelectedGameToLoad]()
+    end
+end)
