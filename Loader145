@@ -11,7 +11,6 @@ end
 local menu = game:GetObjects('rbxassetid://94839936699171')[1]
 menu.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-
 local function getStatusColor(status)
     if status == "Online" then
         return Color3.fromRGB(0, 255, 0)
@@ -29,7 +28,7 @@ local SelectedGameToLoad = ""
 function Library:createGame(gameName, gameId, scriptStatus)
     local gameHolder = menu:WaitForChild("bg"):WaitForChild("gameContainer"):WaitForChild("gameHolder")
 
-    local gameSection = Instance.new("Frame")
+    local gameSectionFrame = Instance.new("Frame")
     gameSectionFrame.Name = "gameSection"
     gameSectionFrame.Parent = gameHolder
     gameSectionFrame.AnchorPoint = Vector2.new(0.5, 0)
@@ -40,7 +39,7 @@ function Library:createGame(gameName, gameId, scriptStatus)
 
     local gameNameLabel = Instance.new("TextLabel")
     gameNameLabel.Name = "gameName"
-    gameNameLabel.Parent = gameSection
+    gameNameLabel.Parent = gameSectionFrame
     gameNameLabel.BackgroundTransparency = 1.000
     gameNameLabel.BorderSizePixel = 0
     gameNameLabel.Position = UDim2.new(0.2, 0, 0.1, 0)
@@ -107,6 +106,7 @@ function Library:createGame(gameName, gameId, scriptStatus)
     gameButton.Size = UDim2.new(1, 0, 1, 0)
     gameButton.ImageTransparency = 1.000
 
+    -- Reset all previous selections
     for i, v in ipairs(gameHolder:GetChildren()) do
         if v:IsA("Frame") then
             v.Transparency = 1
@@ -116,9 +116,9 @@ function Library:createGame(gameName, gameId, scriptStatus)
         end
     end
     
-
     gameButton.MouseButton1Click:Connect(function()
-        for i,v in ipairs(gameHolder:GetChildren()) do
+        -- Reset all previous selections
+        for i, v in ipairs(gameHolder:GetChildren()) do
             if v:IsA("Frame") then
                 v.Transparency = 1
                 if v:FindFirstChild("selectedFrame") then
