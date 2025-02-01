@@ -224,15 +224,14 @@ launchbutton.MouseButton1Click:Connect(function()
     if selectedGame then
         if selectedGame.Status == 'Online' then
             if not isGameLaunched then
-                if not notificationActive then
+                if not notificationActive and not isGameLaunched then
                     notificationActive = true
                     notification("Game Status", "Loading (" .. selectedGame.Title .. ") please wait.", 2)
-                    notificationActive = false
+                    isGameLaunched = true
+                    selectedGame.Callback()
+                    task.wait(2)
+                    menu:Destroy()
                 end
-                isGameLaunched = true
-                selectedGame.Callback()
-                task.wait(2)
-                menu:Destroy()
             end
         elseif selectedGame.Status == 'Updating' then
             if not notificationActive then
