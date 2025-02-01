@@ -22,16 +22,18 @@ function tweenTextColor(textLabel, targetColor, duration)
 end
 
 function getStatusColor(productStatus)
-    if productStatus == 'Online' then
+    local status = string.lower(productStatus)
+    if status == 'online' then
         return Color3.fromRGB(0, 255, 0)
-    elseif productStatus == 'Updating' then
+    elseif status == 'updating' then
         return Color3.fromRGB(0, 255, 255)
-    elseif productStatus == 'Down' then
+    elseif status == 'down' then
         return Color3.fromRGB(255, 0, 0)
     else
         return Color3.fromRGB(0, 0, 0)
     end
 end
+
 
 local selectedGame = nil
 local isGameLaunched = false
@@ -140,7 +142,8 @@ function Library:createGame(gameData)
     value.BorderSizePixel = 0
     value.Size = UDim2.new(1, 0, 1, 0)
     value.Font = Enum.Font.SourceSansBold
-    value.Text = productStatus
+    local capitalizedStatus = productStatus:sub(1, 1):upper() .. productStatus:sub(2):lower()
+    value.Text = capitalizedStatus
     value.TextColor3 = getStatusColor(productStatus)
     value.TextSize = 14.000
     value.TextXAlignment = Enum.TextXAlignment.Left
