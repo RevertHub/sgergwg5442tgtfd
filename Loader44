@@ -225,6 +225,9 @@ launchbutton.MouseButton1Click:Connect(function()
     task.wait(0.1)
     menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("launchbutton"):FindFirstChild("text").TextSize = 20
     if selectedGame then
+        -- Capitalize the status for comparison
+        local capitalizedStatus = selectedGame.Status:sub(1, 1):upper() .. selectedGame.Status:sub(2):lower()
+
         if capitalizedStatus == 'Online' then
             if not isGameLaunched then
                 if not notificationActive and not isGameLaunched then
