@@ -225,7 +225,7 @@ launchbutton.MouseButton1Click:Connect(function()
     task.wait(0.1)
     menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("launchbutton"):FindFirstChild("text").TextSize = 20
     if selectedGame then
-        if selectedGame.Status == 'Online' then
+        if capitalizedStatus == 'Online' then
             if not isGameLaunched then
                 if not notificationActive and not isGameLaunched then
                     notificationActive = true
@@ -236,13 +236,13 @@ launchbutton.MouseButton1Click:Connect(function()
                     menu:Destroy()
                 end
             end
-        elseif selectedGame.Status == 'Updating' then
+        elseif capitalizedStatus == 'Updating' then
             if not notificationActive then
                 notificationActive = true
                 notification("Game Status", "The game (" .. selectedGame.Title .. ") is currently updating. Please wait for it to be updated.", 5)
                 notificationActive = false
             end
-        elseif selectedGame.Status == 'Down' then
+        elseif capitalizedStatus == 'Down' then
             if not notificationActive then
                 notificationActive = true
                 notification("Game Status", "The game (" .. selectedGame.Title .. ") is currently down. There is no ETA on when it will be back online.", 5)
