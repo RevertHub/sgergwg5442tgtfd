@@ -211,12 +211,10 @@ local launchbutton = menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChi
 
 launchbutton.MouseEnter:Connect(function()
     tweenTextColor(menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("launchbutton"):FindFirstChild("text"), Color3.fromRGB(255, 255, 255), 0.5)
-    menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("launchbutton"):FindFirstChild("text").TextSize = 22
 end)
 
 launchbutton.MouseLeave:Connect(function()
     tweenTextColor(menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("launchbutton"):FindFirstChild("text"), Color3.fromRGB(100, 100, 100), 0.5)
-    menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("launchbutton"):FindFirstChild("text").TextSize = 20
 end)
 
 launchbutton.MouseButton1Click:Connect(function()
@@ -226,6 +224,11 @@ launchbutton.MouseButton1Click:Connect(function()
     if selectedGame then
         if selectedGame.Status == 'Online' then
             if not isGameLaunched then
+                if not notificationActive then
+                    notificationActive = true
+                    notification("Game Status", "Loading (" .. selectedGame.Title .. ") please wait.", 2)
+                    notificationActive = false
+                end
                 isGameLaunched = true
                 selectedGame.Callback()
                 task.wait(2)
@@ -263,12 +266,10 @@ local exitbutton = menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild
 
 exitbutton.MouseEnter:Connect(function()
     tweenTextColor(menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("exitbutton"):FindFirstChild("text"), Color3.fromRGB(255, 255, 255), 0.5)
-    menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("exitbutton"):FindFirstChild("text").TextSize = 22
 end)
 
 exitbutton.MouseLeave:Connect(function()
     tweenTextColor(menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("exitbutton"):FindFirstChild("text"), Color3.fromRGB(100, 100, 100), 0.5)
-    menu:FindFirstChild("bg"):FindFirstChild("bg"):FindFirstChild("exitbutton"):FindFirstChild("text").TextSize = 20
 end)
 
 exitbutton.MouseButton1Click:Connect(function()
