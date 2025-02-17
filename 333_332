@@ -297,7 +297,7 @@ repeat
  end
  
  local library = {
-    Title = 'aura.<font color="rgb(115, 100, 215)">wtf</font> || tha bronx',
+    Title = 'Lethal <font color="rgb(115, 100, 215)">Tech</font> || Hoop Nation 2',
     keybind = Enum.KeyCode.RightBracket,
     Watermark = createWatermark(),
        Colors = {
