@@ -8,8 +8,8 @@ repeat
  until game:IsLoaded()
  
  -- Menu/UI Creation
- if not isfile("aura.wtf") then
-    makefolder("aura.wtf")
+ if not isfile("Lethal.Tech") then
+    makefolder("Lethal.Tech")
  end
  
  local menu = game:GetObjects("rbxassetid://17171194056")[1] 
@@ -297,7 +297,7 @@ repeat
  end
  
  local library = {
-    Title = 'aura.<font color="rgb(115, 100, 215)">wtf</font> || tha bronx',
+    Title = 'Lethal<font color="rgb(115, 100, 215)">Tech</font> || Hoops Nation 2',
     keybind = Enum.KeyCode.RightBracket,
     Watermark = createWatermark(),
        Colors = {
@@ -2348,7 +2348,7 @@ repeat
                             if v == x then return true end
                             end return false end
                             function library:createConfig()
-                                makefolder("aura.wtf")
+                                makefolder("Lethal.Tech")
                                 local name = library.flags["config_name"]
                                 if contains(library.options["config_box"].values, name) then return library:Notify(name..".cfg already exists!", 5) end
                                 if name == "" then return library:Notify("You need to put a name in!", 5) end
@@ -2360,14 +2360,14 @@ repeat
                                 else jig[i] = v
                                 end
                             end
-                            writefile("aura.wtf/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
+                            writefile("Lethal.Tech/"..name..".cfg",game:GetService("HttpService"):JSONEncode(jig))
                             library:Notify("Succesfully created config "..name..".cfg!", 5)
                             library:refreshConfigs()
                         end
  
                         function library:saveConfig()
                             pcall(function()
-                                makefolder("aura.wtf")
+                                makefolder("Lethal.Tech")
                                 local name = library.flags["config_box"]
                                 if not name then
                                     return
@@ -2431,7 +2431,7 @@ repeat
  
                 function library:refreshConfigs()
                     local tbl = {}
-                    for i,v in next, listfiles("aura.wtf") do table.insert(tbl,v) end
+                    for i,v in next, listfiles("Lethal.Tech") do table.insert(tbl,v) end
                     library.options["config_box"].refresh(tbl)
                 end      
             end)()                         
