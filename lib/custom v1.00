@@ -17,6 +17,49 @@ function LethalLib:ToggleUI()
 	menu.Enabled = not menu.Enabled
 end
 
+function LethalLib:Notify(text)
+    local Notify = Instance.new("Frame")
+    local UIStroke = Instance.new("UIStroke")
+    local UIGradient = Instance.new("UIGradient")
+    local DescText = Instance.new("TextLabel")
+    local UIPadding = Instance.new("UIPadding")
+    
+    Notify.Name = "Notify"
+    Notify.Parent = menu
+    Notify.AnchorPoint = Vector2.new(0.00499999989, 0.200000003)
+    Notify.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    Notify.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Notify.BorderSizePixel = 0
+    Notify.Position = UDim2.new(0.00565610686, 0, 0.187025428, 0)
+    Notify.Size = UDim2.new(0, 350, 0, 30)
+    
+    UIStroke.Color = Color3.fromRGB(255, 255, 255)
+    UIStroke.Thickness = 2
+    UIStroke.Parent = Notify
+    
+    UIGradient.Color = ColorSequence.new(ColorSequenceKeypoint(0.00, Color3.fromRGB(15, 15, 15)), ColorSequenceKeypoint(0.50, Color3.fromRGB(115, 100, 215)), ColorSequenceKeypoint(1.00, Color3.fromRGB(15, 15, 15)))
+    UIGradient.Offset = Vector2.new(-1, 0)
+    UIGradient.Parent = UIStroke
+    
+    DescText.Name = "DescText"
+    DescText.Parent = Notify
+    DescText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    DescText.BackgroundTransparency = 1.000
+    DescText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    DescText.BorderSizePixel = 0
+    DescText.Size = UDim2.new(1, 0, 1, 0)
+    DescText.Font = Enum.Font.Roboto
+    DescText.Text = text
+    DescText.TextColor3 = Color3.fromRGB(255, 255, 255)
+    DescText.TextSize = 15.000
+    DescText.TextXAlignment = Enum.TextXAlignment.Left
+    
+    UIPadding.Parent = DescText
+    UIPadding.PaddingLeft = UDim.new(0, 40)
+
+    local tweenInfo = TweenInfo.new()
+end
+
 Background.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
        dragging = true
