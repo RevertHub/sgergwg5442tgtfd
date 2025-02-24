@@ -1,4 +1,4 @@
-local LethalLib = {}
+local Library = {}
 
 local menu = game:GetObjects('rbxassetid://101831717227026')[1]
 menu.Parent = cloneref(game.CoreGui)
@@ -13,11 +13,11 @@ local Tabs = {}
 local tabHolder = menu.bg.bg1.tabHolder
 local Background = menu.bg
 
-function LethalLib:ToggleUI()
+function Library:ToggleUI()
 	menu.Enabled = not menu.Enabled
 end
 
-function LethalLib:Notify(text)
+function Library:Notify(notifyText)
     local Notify = Instance.new("Frame")
     local UIStroke = Instance.new("UIStroke")
     local UIGradient = Instance.new("UIGradient")
@@ -31,13 +31,13 @@ function LethalLib:Notify(text)
     Notify.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Notify.BorderSizePixel = 0
     Notify.Position = UDim2.new(0.00565610686, 0, 0.187025428, 0)
-    Notify.Size = UDim2.new(0, 350, 0, 30)
+    Notify.Size = UDim2.new(0, 0, 0, 30)
     
     UIStroke.Color = Color3.fromRGB(255, 255, 255)
     UIStroke.Thickness = 2
     UIStroke.Parent = Notify
     
-    UIGradient.Color = ColorSequence.new(ColorSequenceKeypoint(0.00, Color3.fromRGB(15, 15, 15)), ColorSequenceKeypoint(0.50, Color3.fromRGB(115, 100, 215)), ColorSequenceKeypoint(1.00, Color3.fromRGB(15, 15, 15)))
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 30, 30)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(115, 100, 215)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
     UIGradient.Offset = Vector2.new(-1, 0)
     UIGradient.Parent = UIStroke
     
@@ -49,16 +49,43 @@ function LethalLib:Notify(text)
     DescText.BorderSizePixel = 0
     DescText.Size = UDim2.new(1, 0, 1, 0)
     DescText.Font = Enum.Font.Roboto
-    DescText.Text = text
+    DescText.Text = notifyText
     DescText.TextColor3 = Color3.fromRGB(255, 255, 255)
     DescText.TextSize = 15.000
     DescText.TextXAlignment = Enum.TextXAlignment.Left
+    DescText.TextTransparency = 1
     
     UIPadding.Parent = DescText
-    UIPadding.PaddingLeft = UDim.new(0, 40)
+    UIPadding.PaddingLeft = UDim.new(0.1, 0)
 
-    local tweenInfo = TweenInfo.new()
+    local notifySizeTween = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+    local notifyTween = TweenService:Create(Notify, notifySizeTween, {Size = UDim2.new(0, 350, 0, 30)})
+    local textTween = TweenService:Create(DescText, notifySizeTween, {TextTransparency = 0})
+    notifyTween:Play()
+    textTween:Play()
+
+    notifyTween.Completed:Connect(function()
+        local gradientTween = TweenService:Create(UIGradient, TweenInfo.new(5, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Offset = Vector2.new(1, 0)})
+        gradientTween:Play()
+
+        gradientTween.Completed:Connect(function()
+            local shrinkTween = TweenService:Create(Notify, notifySizeTween, {Size = UDim2.new(0, 0, 0, 30)})
+            shrinkTween:Play()
+            
+            local textFadeInTween = TweenService:Create(DescText, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextTransparency = 1})
+            textFadeInTween:Play()
+
+            shrinkTween.Completed:Connect(function()
+                Notify:Destroy()
+            end)
+        end)
+    end)
+    
+    return Notify
 end
+
+
+
 
 Background.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -87,7 +114,7 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
     end
 end)
 
-function LethalLib:addTab(tabData)	
+function Library:addTab(tabData)	
 	local tabButton = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local UIGradient = Instance.new("UIGradient")
@@ -106,8 +133,8 @@ function LethalLib:addTab(tabData)
 
 	UICorner.Parent = tabButton
 
-	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(14, 14, 14)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 35, 76))}
-	UIGradient.Offset = Vector2.new(-0.100000001, 0)
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(15, 15, 15)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(115, 100, 215)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(15, 15, 15))}
+	UIGradient.Offset = Vector2.new(1, 0)
 	UIGradient.Parent = tabButton
 
 	UIStroke.Color = Color3.new(1, 1, 1)
@@ -115,7 +142,7 @@ function LethalLib:addTab(tabData)
 	UIStroke.Parent = tabButton
 
 	UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 30, 30)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(115, 100, 215))}
-	UIGradient_1.Offset = Vector2.new(-0.2, 0)
+	UIGradient_1.Offset = Vector2.new(1, 0)
 	UIGradient_1.Parent = UIStroke
 
 	text.Name = "text"
@@ -173,23 +200,45 @@ function LethalLib:addTab(tabData)
 	UIPadding.Parent = ContentFrame
 	UIPadding.PaddingTop = UDim.new(0, 20)
 	
-	
 	local TabContent = {}
 	TabContent.Elements = {}
 	
 	Tabs[tabButton] = ContentFrame
 
+	local TweenService = game:GetService("TweenService")
+
 	tbIndicator.MouseButton1Click:Connect(function()
-		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut, 0, false, 0)
-		
-		-- Hide all elements in the tabs
+		local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	
 		for _, tab in pairs(Tabs) do
 			if tab:IsA("ScrollingFrame") then
 				tab.Visible = false
 			end
 		end
+	
+		for _, TabButton in pairs(Tabs) do
+			if TabButton:IsA("Frame") then
+				local tabGradient = TabButton:FindFirstChild("UIGradient")
+				local tabStrokeGradient = TabButton.UIStroke and TabButton.UIStroke:FindFirstChild("UIGradient")
+	
+				if tabGradient then
+					TweenService:Create(tabGradient, tweenInfo, {Offset = Vector2.new(1, 0)}):Play()
+				end
+	
+				if tabStrokeGradient then
+					TweenService:Create(tabStrokeGradient, tweenInfo, {Offset = Vector2.new(1, 0)}):Play()
+				end
+			end
+		end
+
+		TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(-0.2, 0)}):Play()
+		TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(-0.2, 0)}):Play()
+
 		ContentFrame.Visible = true
 	end)
+	
+	
+	
 	
 	function TabContent:addButton(buttonData)
 		local Button = Instance.new("Frame")
@@ -252,7 +301,7 @@ function LethalLib:addTab(tabData)
 		bIndicator.TextColor3 = Color3.fromRGB(0, 0, 0)
 		bIndicator.TextSize = 14.000
 
-		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut, 0, false, 0)
+		local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0)
 		bIndicator.MouseEnter:Connect(function()
 			TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
 			TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
@@ -383,7 +432,7 @@ function LethalLib:addTab(tabData)
 		tIndicator.MouseButton1Click:Connect(function()
 			toggled = not toggled
 			
-			local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut, 0, false, 0)
+			local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out, 0, false, 0)
 			if toggled then
 				TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
 				TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
@@ -409,4 +458,4 @@ function LethalLib:addTab(tabData)
 	return TabContent
 end
 
-return LethalLib
+return Library
