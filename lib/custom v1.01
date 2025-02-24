@@ -408,3 +408,5 @@ function LethalLib:addTab(tabData)
 	
 	return TabContent
 end
+
+return LethalLib
