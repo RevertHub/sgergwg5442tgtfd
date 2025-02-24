@@ -1,0 +1,339 @@
+local LethalLib = {}
+
+local menu = game:GetObjects('rbxassetid://101831717227026')[1]
+menu.Parent = cloneref(game.CoreGui)
+
+
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local Tabs = {}
+
+local tabHolder = menu.bg.bg1.tabHolder
+
+function LethalLib:ToggleUI()
+	menu.Enabled = not menu.Enabled
+end
+
+function LethalLib:addTab(tabData)	
+	local tabButton = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local UIGradient = Instance.new("UIGradient")
+	local UIStroke = Instance.new("UIStroke")
+	local UIGradient_1 = Instance.new("UIGradient")
+	local text = Instance.new("TextLabel")
+	local UIPadding = Instance.new("UIPadding")
+	local tbIndicator = Instance.new("TextButton")
+
+	tabButton.Name = "tabButton"
+	tabButton.Parent = tabHolder
+	tabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	tabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	tabButton.BorderSizePixel = 0
+	tabButton.Size = UDim2.new(1, 0, 0, 35)
+
+	UICorner.Parent = tabButton
+
+	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(14, 14, 14)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 35, 76))}
+	UIGradient.Offset = Vector2.new(-0.100000001, 0)
+	UIGradient.Parent = tabButton
+
+	UIStroke.Color = Color3.new(1, 1, 1)
+	UIStroke.Thickness = 1
+	UIStroke.Parent = tabButton
+
+	UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 30, 30)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(115, 100, 215))}
+	UIGradient_1.Offset = Vector2.new(-0.2, 0)
+	UIGradient_1.Parent = UIStroke
+
+	text.Name = "text"
+	text.Parent = tabButton
+	text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	text.BackgroundTransparency = 1.000
+	text.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	text.BorderSizePixel = 0
+	text.Size = UDim2.new(1, 0, 1, 0)
+	text.Font = Enum.Font.Roboto
+	text.Text = tabData.text
+	text.TextColor3 = Color3.fromRGB(255, 255, 255)
+	text.TextSize = 16.000
+	text.TextWrapped = true
+	text.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIPadding.Parent = text
+	UIPadding.PaddingLeft = UDim.new(0, 20)
+
+	tbIndicator.Name = "tbIndicator"
+	tbIndicator.Parent = tabButton
+	tbIndicator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	tbIndicator.BackgroundTransparency = 1.000
+	tbIndicator.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	tbIndicator.BorderSizePixel = 0
+	tbIndicator.Size = UDim2.new(1, 0, 1, 0)
+	tbIndicator.Font = Enum.Font.SourceSans
+	tbIndicator.Text = ""
+	tbIndicator.TextColor3 = Color3.fromRGB(0, 0, 0)
+	tbIndicator.TextSize = 14.000
+	
+	table.insert(Tabs, tabButton)
+	
+	local ContentFrame = Instance.new("ScrollingFrame")
+	local UIListLayout = Instance.new("UIListLayout")
+	local UIPadding = Instance.new("UIPadding")
+
+	ContentFrame.Name = "ContentFrame"
+	ContentFrame.Parent = menu.bg.bg2
+	ContentFrame.Active = true
+	ContentFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ContentFrame.BackgroundTransparency = 1.000
+	ContentFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ContentFrame.BorderSizePixel = 0
+	ContentFrame.Size = UDim2.new(1, 0, 1, 0)
+	ContentFrame.CanvasSize = UDim2.new(0, 0, 2, 0)
+	ContentFrame.ScrollBarThickness = 0
+	ContentFrame.Visible = #Tabs == 1
+
+	UIListLayout.Parent = ContentFrame
+	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout.Padding = UDim.new(0, 15)
+
+	UIPadding.Parent = ContentFrame
+	UIPadding.PaddingTop = UDim.new(0, 20)
+	
+	
+	local TabContent = {}
+	TabContent.Elements = {}
+	
+	Tabs[tabButton] = ContentFrame
+
+	tbIndicator.MouseButton1Click:Connect(function()
+		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut, 0, false, 0)
+		
+		-- Hide all elements in the tabs
+		for _, tab in pairs(Tabs) do
+			if tab:IsA("ScrollingFrame") then
+				tab.Visible = false
+			end
+		end
+		ContentFrame.Visible = true
+	end)
+	
+	function TabContent:addButton(buttonData)
+		local Button = Instance.new("Frame")
+		local UICorner = Instance.new("UICorner")
+		local UIGradient = Instance.new("UIGradient")
+		local UIStroke = Instance.new("UIStroke")
+		local UIGradient_1 = Instance.new("UIGradient")
+		local text = Instance.new("TextLabel")
+		local UIPadding = Instance.new("UIPadding")
+		local bIndicator = Instance.new("TextButton")
+
+		Button.Name = "Button"
+		Button.Parent = ContentFrame
+		Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Button.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Button.BorderSizePixel = 0
+		Button.Size = UDim2.new(0.899999976, 0, 0, 35)
+
+		UICorner.Parent = Button
+
+		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(14, 14, 14)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 35, 76))}
+		UIGradient.Offset = Vector2.new(1, 0)
+		UIGradient.Parent = Button
+
+		UIStroke.Color = Color3.fromRGB(255, 255, 255)
+		UIStroke.Thickness = 2
+		UIStroke.Parent = Button
+
+		UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 30, 30)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(115, 100, 215))}
+		UIGradient_1.Offset = Vector2.new(1, 0)
+		UIGradient_1.Enabled = true
+		UIGradient_1.Parent = UIStroke
+
+		text.Name = "text"
+		text.Parent = Button
+		text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		text.BackgroundTransparency = 1.000
+		text.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		text.BorderSizePixel = 0
+		text.Size = UDim2.new(1, 0, 1, 0)
+		text.Font = Enum.Font.Roboto
+		text.Text = buttonData.text
+		text.TextColor3 = Color3.fromRGB(255, 255, 255)
+		text.TextSize = 16.000
+		text.TextWrapped = true
+		text.TextXAlignment = Enum.TextXAlignment.Left
+
+		UIPadding.Parent = text
+		UIPadding.PaddingLeft = UDim.new(0, 40)
+
+		bIndicator.Name = "bIndicator"
+		bIndicator.Parent = Button
+		bIndicator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		bIndicator.BackgroundTransparency = 1.000
+		bIndicator.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		bIndicator.BorderSizePixel = 0
+		bIndicator.Size = UDim2.new(1, 0, 1, 0)
+		bIndicator.Font = Enum.Font.SourceSans
+		bIndicator.Text = ""
+		bIndicator.TextColor3 = Color3.fromRGB(0, 0, 0)
+		bIndicator.TextSize = 14.000
+
+		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut, 0, false, 0)
+		bIndicator.MouseEnter:Connect(function()
+			TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
+			TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
+		end)
+
+		bIndicator.MouseLeave:Connect(function()
+			TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(1, 0)}):Play()
+			TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(1, 0)}):Play()
+		end)
+		
+		bIndicator.MouseButton1Click:Connect(function()
+			if buttonData.callback then
+				buttonData.callback()
+			end
+		end)
+		
+		table.insert(self.Elements, Button)
+		
+		return Button
+	end
+	
+	function TabContent:addToggle(toggleData)
+		local Toggle = Instance.new("Frame")
+		local UICorner = Instance.new("UICorner")
+		local UIGradient = Instance.new("UIGradient")
+		local UIStroke = Instance.new("UIStroke")
+		local UIGradient_1 = Instance.new("UIGradient")
+		local text = Instance.new("TextLabel")
+		local UIPadding = Instance.new("UIPadding")
+		local tIndicator = Instance.new("TextButton")
+		local Boolean = Instance.new("Frame")
+		local BooleanUIStroke = Instance.new("UIStroke")
+		local UICorner_2 = Instance.new("UICorner")
+		local Circle = Instance.new("Frame")
+		local UICorner_3 = Instance.new("UICorner")
+		local UIPadding_2 = Instance.new("UIPadding")
+		local CircleUIStroke = Instance.new("UIStroke")
+
+		Toggle.Name = "Toggle"
+		Toggle.Parent = ContentFrame
+		Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Toggle.BorderSizePixel = 0
+		Toggle.Size = UDim2.new(0.899999976, 0, 0, 35)
+
+		UICorner.Parent = Toggle
+
+		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(14, 14, 14)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 35, 76))}
+		UIGradient.Offset = Vector2.new(1, 0)
+		UIGradient.Parent = Toggle
+
+		UIStroke.Color = Color3.fromRGB(255, 255, 255)
+		UIStroke.Thickness = 2
+		UIStroke.Parent = Toggle
+
+		UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 30, 30)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(115, 100, 215))}
+		UIGradient_1.Offset = Vector2.new(1, 0)
+		UIGradient_1.Parent = UIStroke
+
+		text.Name = "text"
+		text.Parent = Toggle
+		text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		text.BackgroundTransparency = 1.000
+		text.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		text.BorderSizePixel = 0
+		text.Size = UDim2.new(1, 0, 1, 0)
+		text.Font = Enum.Font.Roboto
+		text.Text = toggleData.text
+		text.TextColor3 = Color3.fromRGB(255, 255, 255)
+		text.TextSize = 16.000
+		text.TextWrapped = true
+		text.TextXAlignment = Enum.TextXAlignment.Left
+
+		UIPadding.Parent = text
+		UIPadding.PaddingLeft = UDim.new(0, 40)
+
+		tIndicator.Name = "tIndicator"
+		tIndicator.Parent = Toggle
+		tIndicator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		tIndicator.BackgroundTransparency = 1.000
+		tIndicator.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		tIndicator.BorderSizePixel = 0
+		tIndicator.Size = UDim2.new(1, 0, 1, 0)
+		tIndicator.Font = Enum.Font.SourceSans
+		tIndicator.Text = ""
+		tIndicator.TextColor3 = Color3.fromRGB(0, 0, 0)
+		tIndicator.TextSize = 14.000
+
+		Boolean.Name = "Boolean"
+		Boolean.Parent = Toggle
+		Boolean.AnchorPoint = Vector2.new(0.5, 0.5)
+		Boolean.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+		Boolean.BackgroundTransparency = 1.000
+		Boolean.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Boolean.BorderSizePixel = 0
+		Boolean.Position = UDim2.new(0.904311776, 0, 0.5, 0)
+		Boolean.Size = UDim2.new(0, 50, 0, 25)
+
+		BooleanUIStroke.Color = Color3.fromRGB(30, 30, 30)
+		BooleanUIStroke.Thickness = 1
+		BooleanUIStroke.Parent = Boolean
+
+		UICorner_2.CornerRadius = UDim.new(0, 16)
+		UICorner_2.Parent = Boolean
+
+		Circle.Name = "Circle"
+		Circle.Parent = Boolean
+		Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Circle.BackgroundTransparency = 1.000
+		Circle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Circle.BorderSizePixel = 0
+		Circle.Position = UDim2.new(0, 0, 0, 2)
+		Circle.Size = UDim2.new(0, 20, 0, 20)
+
+		CircleUIStroke.Color = Color3.fromRGB(30, 30, 30)
+		CircleUIStroke.Thickness = 1
+		CircleUIStroke.Parent = Circle
+
+		UICorner_3.CornerRadius = UDim.new(1, 0)
+		UICorner_3.Parent = Circle
+
+		UIPadding_2.Parent = Boolean
+		UIPadding_2.PaddingLeft = UDim.new(0, 5)
+		UIPadding_2.PaddingRight = UDim.new(0, 5)
+		
+		local toggled = false
+		
+		tIndicator.MouseButton1Click:Connect(function()
+			toggled = not toggled
+			
+			local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut, 0, false, 0)
+			if toggled then
+				TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
+				TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(0.4, 0)}):Play()
+				TweenService:Create(Circle, tweenInfo, {Position = UDim2.new(0.5, 0, 0, 2)}):Play()
+				TweenService:Create(BooleanUIStroke, tweenInfo, {Color = Color3.fromRGB(115, 100, 215)}):Play()
+				TweenService:Create(CircleUIStroke, tweenInfo, {Color = Color3.fromRGB(115, 100, 215)}):Play()
+			else
+				TweenService:Create(UIGradient, tweenInfo, {Offset = Vector2.new(1, 0)}):Play()
+				TweenService:Create(UIGradient_1, tweenInfo, {Offset = Vector2.new(1, 0)}):Play()
+				TweenService:Create(Circle, tweenInfo, {Position = UDim2.new(0, 0, 0, 2)}):Play()
+				TweenService:Create(BooleanUIStroke, tweenInfo, {Color = Color3.fromRGB(30, 30, 30)}):Play()
+				TweenService:Create(CircleUIStroke, tweenInfo, {Color = Color3.fromRGB(30, 30, 30)}):Play()
+			end
+			
+			if toggleData.callback then
+				toggleData.callback(toggled)
+			end
+		end)
+		
+		return Toggle
+	end
+	
+	return TabContent
+end
