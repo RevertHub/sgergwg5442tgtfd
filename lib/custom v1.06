@@ -2,6 +2,7 @@ local Library = {}
 
 local menu = game:GetObjects('rbxassetid://101831717227026')[1]
 menu.Parent = cloneref(game.CoreGui)
+menu.ResetOnSpawn = false
 
 
 local TweenService = game:GetService("TweenService")
@@ -17,71 +18,106 @@ function Library:ToggleUI()
 	menu.Enabled = not menu.Enabled
 end
 
+local Notify = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local UIPadding = Instance.new("UIPadding")
+
+Notify.Parent = menu
+Notify.Name = "notify"
+Notify.AnchorPoint = Vector2.new(0, 0.25)
+Notify.BackgroundTransparency = 1
+Notify.Position = UDim2.new(0, 0, 0.452, 0)
+Notify.Size = UDim2.new(0.293, 0,1, 0)
+
+UIListLayout.Parent = Notify
+UIListLayout.Padding = UDim.new(0, 10)
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
+
+UIPadding.Parent = Notify
+UIPadding.PaddingLeft = UDim.new(0, 5)
+
 function Library:Notify(notifyText)
-    local Notify = Instance.new("Frame")
-    local UIStroke = Instance.new("UIStroke")
-    local UIGradient = Instance.new("UIGradient")
-    local DescText = Instance.new("TextLabel")
-    local UIPadding = Instance.new("UIPadding")
-    
-    Notify.Name = "Notify"
-    Notify.Parent = menu
-    Notify.AnchorPoint = Vector2.new(0.00499999989, 0.200000003)
-    Notify.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    Notify.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Notify.BorderSizePixel = 0
-    Notify.Position = UDim2.new(0.00565610686, 0, 0.187025428, 0)
-    Notify.Size = UDim2.new(0, 0, 0, 30)
-    
-    UIStroke.Color = Color3.fromRGB(255, 255, 255)
-    UIStroke.Thickness = 2
-    UIStroke.Parent = Notify
-    
-    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 30, 30)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(115, 100, 215)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 30, 30))}
-    UIGradient.Offset = Vector2.new(-1, 0)
-    UIGradient.Parent = UIStroke
-    
-    DescText.Name = "DescText"
-    DescText.Parent = Notify
-    DescText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    DescText.BackgroundTransparency = 1.000
-    DescText.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    DescText.BorderSizePixel = 0
-    DescText.Size = UDim2.new(1, 0, 1, 0)
-    DescText.Font = Enum.Font.Roboto
-    DescText.Text = notifyText
-    DescText.TextColor3 = Color3.fromRGB(255, 255, 255)
-    DescText.TextSize = 15.000
-    DescText.TextXAlignment = Enum.TextXAlignment.Left
-    DescText.TextTransparency = 1
-    
-    UIPadding.Parent = DescText
-    UIPadding.PaddingLeft = UDim.new(0.1, 0)
+	local Frame = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local UIStroke = Instance.new("UIStroke")
+	local UIGradient = Instance.new("UIGradient")
+	local DescText = Instance.new("TextLabel")
+	local UIPadding_2 = Instance.new("UIPadding")
 
-    local notifySizeTween = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
-    local notifyTween = TweenService:Create(Notify, notifySizeTween, {Size = UDim2.new(0, 350, 0, 30)})
-    local textTween = TweenService:Create(DescText, notifySizeTween, {TextTransparency = 0})
-    notifyTween:Play()
-    textTween:Play()
+	if not menu:FindFirstChild("notify") then return end
 
-    notifyTween.Completed:Connect(function()
-        local gradientTween = TweenService:Create(UIGradient, TweenInfo.new(5, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {Offset = Vector2.new(1, 0)})
-        gradientTween:Play()
+	Frame.Parent = Notify
+	Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	Frame.Size = UDim2.new(0, 0, 0.046, 0)
 
-        gradientTween.Completed:Connect(function()
-            local shrinkTween = TweenService:Create(Notify, notifySizeTween, {Size = UDim2.new(0, 0, 0, 30)})
-            shrinkTween:Play()
-            
-            local textFadeInTween = TweenService:Create(DescText, TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextTransparency = 1})
-            textFadeInTween:Play()
+	UICorner.Parent = Frame
+	UICorner.CornerRadius = UDim.new(0, 8)
 
-            shrinkTween.Completed:Connect(function()
-                Notify:Destroy()
-            end)
-        end)
-    end)
-    
-    return Notify
+	UIStroke.Parent = Frame
+	UIStroke.Color = Color3.fromRGB(255, 255, 255)
+	UIStroke.Thickness = 3
+
+	UIGradient.Parent = UIStroke
+	UIGradient.Color = ColorSequence.new{
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(50, 50, 50)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(115, 100, 215)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(50, 50, 50))
+	}
+	UIGradient.Offset = Vector2.new(-1, 0)
+
+	DescText.Name = "DescText"
+	DescText.Parent = Frame
+	DescText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	DescText.BackgroundTransparency = 1.000
+	DescText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	DescText.BorderSizePixel = 0
+	DescText.Size = UDim2.new(1, 0, 1, 0)
+	DescText.Font = Enum.Font.Roboto
+	DescText.Text = notifyText
+	DescText.TextColor3 = Color3.fromRGB(255, 255, 255)
+	DescText.TextSize = 16.000
+	DescText.TextXAlignment = Enum.TextXAlignment.Left
+	DescText.TextTransparency = 1
+	
+	UIPadding_2.Parent = DescText
+	UIPadding_2.PaddingLeft = UDim.new(0, 40)
+
+	local TweenService = game:GetService("TweenService")
+
+	local frameTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	local textTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	local fadeOutTweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	local gradientTweenInfo = TweenInfo.new(5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
+	
+	local frameTweenIn = TweenService:Create(Frame, frameTweenInfo, {Size = UDim2.new(0.875, 0, 0.046, 0)})
+	local textTweenIn = TweenService:Create(DescText, textTweenInfo, {TextTransparency = 0})
+	
+	frameTweenIn:Play()
+	textTweenIn:Play()
+	
+	frameTweenIn.Completed:Connect(function()
+		task.wait(0.5)
+	
+		local tweenGradient = TweenService:Create(UIGradient, gradientTweenInfo, {Offset = Vector2.new(1, 0)})
+		tweenGradient:Play()
+	
+		tweenGradient.Completed:Connect(function()
+			task.wait(0.5)
+	
+			local frameTweenOut = TweenService:Create(Frame, fadeOutTweenInfo, {Size = UDim2.new(0, 0, 0.046, 0)})
+			local textTweenOut = TweenService:Create(DescText, fadeOutTweenInfo, {TextTransparency = 1})
+	
+			frameTweenOut:Play()
+			textTweenOut:Play()
+	
+			frameTweenOut.Completed:Connect(function()
+				Frame:Destroy()
+			end)
+		end)
+	end)
+	
+
+	return Frame
 end
 
 
