@@ -230,7 +230,7 @@ function Library:addTab(tabData)
 	ContentFrame.Size = UDim2.new(1, 0, 1, 0)
 	ContentFrame.CanvasSize = UDim2.new(0, 0, 2, 0)
 	ContentFrame.ScrollBarThickness = 0
-	ContentFrame.Visible = #Tabs == 1
+	ContentFrame.Visible = #Tabs == 0
 
 	UIListLayout.Parent = ContentFrame
 	UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
