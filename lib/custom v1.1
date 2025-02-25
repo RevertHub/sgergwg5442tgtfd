@@ -14,8 +14,32 @@ local Tabs = {}
 local tabHolder = menu.bg.bg1.tabHolder
 local Background = menu.bg
 
+
 function Library.ToggleUI()
-	menu.Enabled = not menu.Enabled
+	if menu then
+		menu.bg.Visible = not menu.bg.Visible
+	end
+end
+
+local ToggleUIKeybind = Enum.KeyCode.RightShift
+local ToggleUIConnection
+local function ConnectKeybind()
+	if ToggleUIConnection then
+		ToggleUIConnection:Disconnect()
+	end
+	ToggleUIConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if gameProcessed then return end
+		if input.KeyCode == ToggleUIKeybind then
+			Library.ToggleUI()
+		end
+	end)
+end
+ConnectKeybind()
+function Library.SetKeybind(newKey)
+	if newKey ~= ToggleUIKeybind then
+		ToggleUIKeybind = newKey
+		ConnectKeybind()
+	end
 end
 
 function Library.Unload()
