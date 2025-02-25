@@ -17,7 +17,10 @@ local Background = menu.bg
 
 function Library.ToggleUI()
 	if menu then
-		menu.bg.Visible = not menu.bg.Visible
+		local bg = menu:FindFirstChild("bg")
+		if bg then
+			bg.Visible = not bg.Visible
+		end
 	end
 end
 
