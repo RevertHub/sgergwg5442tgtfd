@@ -14,8 +14,12 @@ local Tabs = {}
 local tabHolder = menu.bg.bg1.tabHolder
 local Background = menu.bg
 
-function Library:ToggleUI()
+function Library.ToggleUI()
 	menu.Enabled = not menu.Enabled
+end
+
+function Library.Unload()
+	menu:Destroy()
 end
 
 local Notify = Instance.new("Frame")
