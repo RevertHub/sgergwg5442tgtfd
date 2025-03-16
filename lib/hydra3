@@ -320,7 +320,7 @@ local function getObjGen()
             Gui.DropShadow.Size = UDim2.new(1, 34, 1, 34)
             Gui.DropShadow.ZIndex = 109
             Gui.DropShadow.Image = "rbxassetid://6014261993"
-            Gui.DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow.ImageTransparency = 0.500
             Gui.DropShadow.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -431,7 +431,7 @@ local function getObjGen()
             Gui.DropShadow_2.Size = UDim2.new(1, 30, 1, 30)
             Gui.DropShadow_2.ZIndex = 109
             Gui.DropShadow_2.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_2.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_2.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_2.ImageTransparency = 0.500
             Gui.DropShadow_2.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_2.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -509,7 +509,7 @@ local function getObjGen()
             Gui.DropShadow_3.Size = UDim2.new(1, 34, 1, 34)
             Gui.DropShadow_3.ZIndex = 109
             Gui.DropShadow_3.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_3.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_3.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_3.ImageTransparency = 0.500
             Gui.DropShadow_3.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_3.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -565,7 +565,7 @@ local function getObjGen()
             Gui.DropShadow_4.Size = UDim2.new(1, 32, 1, 32)
             Gui.DropShadow_4.ZIndex = 109
             Gui.DropShadow_4.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_4.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_4.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_4.ImageTransparency = 0.500
             Gui.DropShadow_4.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_4.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -585,7 +585,7 @@ local function getObjGen()
 
             Gui.HoverFrame_4.Name = "HoverFrame"
             Gui.HoverFrame_4.Parent = Gui.Keybind
-            Gui.HoverFrame_4.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+            Gui.HoverFrame_4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             Gui.HoverFrame_4.BackgroundTransparency = 1.000
             Gui.HoverFrame_4.BorderSizePixel = 0
             Gui.HoverFrame_4.Size = UDim2.new(1, 0, 1, 0)
@@ -638,7 +638,7 @@ local function getObjGen()
             Gui.DropShadow_5.Size = UDim2.new(1, 15, 1, 15)
             Gui.DropShadow_5.ZIndex = 108
             Gui.DropShadow_5.Image = "rbxassetid://6015897843"
-            Gui.DropShadow_5.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_5.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_5.ImageTransparency = 0.500
             Gui.DropShadow_5.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_5.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -688,7 +688,7 @@ local function getObjGen()
             Gui.DropShadow_6.Size = UDim2.new(1, 15, 1, 15)
             Gui.DropShadow_6.ZIndex = 110
             Gui.DropShadow_6.Image = "rbxassetid://6015897843"
-            Gui.DropShadow_6.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_6.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_6.ImageTransparency = 0.500
             Gui.DropShadow_6.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_6.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -776,7 +776,7 @@ local function getObjGen()
             Gui.DropShadow_7.Size = UDim2.new(1, 25, 1, 25)
             Gui.DropShadow_7.ZIndex = 109
             Gui.DropShadow_7.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_7.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_7.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_7.ImageTransparency = 0.500
             Gui.DropShadow_7.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_7.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -837,7 +837,7 @@ local function getObjGen()
             Gui.DropShadow_8.Size = UDim2.new(1, 25, 1, 25)
             Gui.DropShadow_8.ZIndex = 109
             Gui.DropShadow_8.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_8.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_8.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_8.ImageTransparency = 0.500
             Gui.DropShadow_8.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_8.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -929,7 +929,7 @@ local function getObjGen()
             Gui.DropShadow_9.Size = UDim2.new(1, 50, 1, 50)
             Gui.DropShadow_9.ZIndex = 111
             Gui.DropShadow_9.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_9.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_9.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_9.ImageTransparency = 1.000
             Gui.DropShadow_9.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_9.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1225,7 +1225,7 @@ local function getObjGen()
             Gui.MainUI.Name = "MainUI"
             Gui.MainUI.Parent = Gui.Window
             Gui.MainUI.AnchorPoint = Vector2.new(0.5, 0.5)
-            Gui.MainUI.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+            Gui.MainUI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             Gui.MainUI.Position = UDim2.new(0.5, 0, 0.5, 0)
             --Gui.MainUI.Size = UDim2.new(0.47, 0, 0.75, 0)
             Gui.MainUI.Size = UDim2.new(0, 851, 0, 488)
@@ -1247,7 +1247,7 @@ local function getObjGen()
             Gui.DropShadow_10.Size = UDim2.new(1, 45, 1, 45)
             Gui.DropShadow_10.ZIndex = 99
             Gui.DropShadow_10.Image = "rbxassetid://6015897843"
-            Gui.DropShadow_10.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_10.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_10.ImageTransparency = 0.500
             Gui.DropShadow_10.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_10.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1466,7 +1466,7 @@ local function getObjGen()
             Gui.ColorPickerOverlay.ZIndex = 200
             Gui.ColorPickerOverlay.AutoButtonColor = false
             Gui.ColorPickerOverlay.Image = "rbxassetid://7880418493"
-            Gui.ColorPickerOverlay.ImageColor3 = Color3.fromRGB(18, 18, 18)
+            Gui.ColorPickerOverlay.ImageColor3 = Color3.fromRGB(0, 0, 0)
             Gui.ColorPickerOverlay.ImageTransparency = 1.000
             Gui.ColorPickerOverlay.ScaleType = Enum.ScaleType.Slice
             Gui.ColorPickerOverlay.SliceCenter = Rect.new(512, 512, 512, 512)
@@ -1575,7 +1575,7 @@ local function getObjGen()
             Gui.DropShadow_11.Size = UDim2.new(1, 12, 1, 12)
             Gui.DropShadow_11.ZIndex = 201
             Gui.DropShadow_11.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_11.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_11.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_11.ImageTransparency = 0.500
             Gui.DropShadow_11.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_11.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1677,7 +1677,7 @@ local function getObjGen()
             Gui.DropShadow_12.Size = UDim2.new(1, 24, 1, 24)
             Gui.DropShadow_12.ZIndex = 201
             Gui.DropShadow_12.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_12.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_12.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_12.ImageTransparency = 0.500
             Gui.DropShadow_12.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_12.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1724,7 +1724,7 @@ local function getObjGen()
             Gui.DropShadow_13.Size = UDim2.new(1, 24, 1, 24)
             Gui.DropShadow_13.ZIndex = 201
             Gui.DropShadow_13.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_13.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_13.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_13.ImageTransparency = 0.500
             Gui.DropShadow_13.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_13.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1809,7 +1809,7 @@ local function getObjGen()
             Gui.DropShadow_14.Size = UDim2.new(1, 24, 1, 24)
             Gui.DropShadow_14.ZIndex = 201
             Gui.DropShadow_14.Image = "rbxassetid://6015897843"
-            Gui.DropShadow_14.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_14.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_14.ImageTransparency = 0.200
             Gui.DropShadow_14.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_14.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1890,7 +1890,7 @@ local function getObjGen()
             Gui.DropShadow_15.Size = UDim2.new(1, 24, 1, 24)
             Gui.DropShadow_15.ZIndex = 201
             Gui.DropShadow_15.Image = "rbxassetid://6015897843"
-            Gui.DropShadow_15.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_15.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_15.ImageTransparency = 0.200
             Gui.DropShadow_15.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_15.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -1920,7 +1920,7 @@ local function getObjGen()
 
             Gui.Shadow_3.Name = "Shadow"
             Gui.Shadow_3.Parent = Gui.Content_7
-            Gui.Shadow_3.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+            Gui.Shadow_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             Gui.Shadow_3.BorderSizePixel = 0
             Gui.Shadow_3.Position = UDim2.new(-0.0192201305, 0, 0, 0)
             Gui.Shadow_3.Size = UDim2.new(1.01922011, 0, 1, 0)
@@ -2083,7 +2083,7 @@ local function getObjGen()
 
             Gui.Border.Name = "Border"
             Gui.Border.Parent = Gui.Section
-            Gui.Border.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+            Gui.Border.BackgroundColor3 = Color3.fromRGB(115, 100, 215)
             Gui.Border.BorderSizePixel = 0
             Gui.Border.Size = UDim2.new(1, 0, 1, 0)
             Gui.Border.ZIndex = 107
@@ -2098,7 +2098,7 @@ local function getObjGen()
             Gui.SectionTitle.ZIndex = 110
             Gui.SectionTitle.Font = Enum.Font.GothamBold
             Gui.SectionTitle.Text = "TEXT BOXES"
-            Gui.SectionTitle.TextColor3 = Color3.fromRGB(60, 60, 60)
+            Gui.SectionTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
             Gui.SectionTitle.TextScaled = true
             Gui.SectionTitle.TextSize = 14.000
             Gui.SectionTitle.TextWrapped = true
@@ -2138,7 +2138,7 @@ local function getObjGen()
             Gui.DropShadow_16.Size = UDim2.new(1, 47, 1, 47)
             Gui.DropShadow_16.ZIndex = 105
             Gui.DropShadow_16.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_16.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_16.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_16.ImageTransparency = 0.500
             Gui.DropShadow_16.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_16.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -2191,7 +2191,7 @@ local function getObjGen()
             Gui.Desc.ZIndex = 111
             Gui.Desc.Font = Enum.Font.Gotham
             Gui.Desc.Text = "Short description"
-            Gui.Desc.TextColor3 = Color3.fromRGB(60, 60, 60)
+            Gui.Desc.TextColor3 = Color3.fromRGB(255, 255, 255)
             Gui.Desc.TextSize = 12.000
             Gui.Desc.TextWrapped = true
             Gui.Desc.TextXAlignment = Enum.TextXAlignment.Left
@@ -2237,7 +2237,7 @@ local function getObjGen()
             Gui.DropShadow_17.Size = UDim2.new(1, 47, 1, 47)
             Gui.DropShadow_17.ZIndex = 0
             Gui.DropShadow_17.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_17.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_17.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_17.ImageTransparency = 0.500
             Gui.DropShadow_17.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_17.SliceCenter = Rect.new(49, 49, 450, 450)
@@ -2380,7 +2380,7 @@ local function getObjGen()
             Gui.DropShadow_18.Size = UDim2.new(1, 47, 1, 47)
             Gui.DropShadow_18.ZIndex = 0
             Gui.DropShadow_18.Image = "rbxassetid://6014261993"
-            Gui.DropShadow_18.ImageColor3 = Color3.fromRGB(0, 0, 0)
+            Gui.DropShadow_18.ImageColor3 = Color3.fromRGB(115, 100, 215)
             Gui.DropShadow_18.ImageTransparency = 0.500
             Gui.DropShadow_18.ScaleType = Enum.ScaleType.Slice
             Gui.DropShadow_18.SliceCenter = Rect.new(49, 49, 450, 450)
