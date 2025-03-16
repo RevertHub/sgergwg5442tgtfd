@@ -2757,6 +2757,9 @@ do
     Library.Watermark = WatermarkOuter;
     Library.WatermarkText = WatermarkLabel;
     -- Library:MakeDraggable(Library.Watermark);
+    RunService.RenderStepped:Connect(function()
+        WatermarkOuter.Position = UDim2.new(0, workspace.CurrentCamera.ViewportSize.X/2, 0, 0);
+    end)
 
 
 
