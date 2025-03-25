@@ -393,7 +393,7 @@ FarmS:AddToggle('ATM Autofarm',{
                         repeat task.wait() until sliderMinigame.Visible
                                 
                         repeat
-                            task.wait(0.5)
+                            task.wait(1)
                             for _, obj in pairs(sliderMinigame:GetChildren()) do
                                 if obj:IsA("Frame") then
                                     local bar, perfectMark
